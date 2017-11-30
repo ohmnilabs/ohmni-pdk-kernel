@@ -1080,6 +1080,25 @@ config INTEL_TELEMETRY
 	  used to get various SoC events and parameters
 	  directly via debugfs files. Various tools may use
 	  this interface for SoC state monitoring.
+
+config UP_BOARD
+	bool "UP Board Platform I/O Driver"
+	depends on ACPI && PINCTRL_CHERRYVIEW
+	select GPIOLIB_IRQCHIP
+	select LEDS_CLASS
+	select NEW_LEDS
+	---help---
+	  This driver provides support for the platform functions on the UP
+	  board.  It includes platform, pinctrl and gpio drivers for the CPLD
+	  that manages the external pin header, as well as a driver for the
+	  built-in LEDs.
+
+config OHMNI_UP_PLATFORM
+	bool "Ohmni UP board"
+	depends on UP_BOARD
+	---help---
+	  This driver provides support for Ohmni robot.
+
 endif # X86_PLATFORM_DEVICES
 
 config PMC_ATOM

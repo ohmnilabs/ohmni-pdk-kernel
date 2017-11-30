@@ -157,7 +157,8 @@ static void uvc_fixup_video_ctrl(struct uvc_streaming *stream,
 		 * resolutions working while not preventing two simultaneous
 		 * VGA streams at 15 fps.
 		 */
-		bandwidth = max_t(u32, bandwidth, 1024);
+		// DISABLED as we are looking to use the 900 one.
+		//bandwidth = max_t(u32, bandwidth, 1024);
 
 		ctrl->dwMaxPayloadTransferSize = bandwidth;
 	}
